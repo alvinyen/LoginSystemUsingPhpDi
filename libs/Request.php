@@ -1,9 +1,9 @@
 <?php
 
-namespace LoginSystemUsingPhpDi\libs;
-include_once __DIR__ . "/HttpData.php";
-include_once __DIR__ . "/HttpGetData.php";
-include_once __DIR__ . "/HttpPostData.php";
+namespace LoginSystemUsingPhpDi\libs ;
+include_once __DIR__ . "/HttpData.php" ;
+include_once __DIR__ . "/HttpGetData.php" ;
+include_once __DIR__ . "/HttpPostData.php" ;
 use \LoginSystemUsingPhpDi\libs\HttpData ;
 use \LoginSystemUsingPhpDi\libs\HttpGetData ;
 use \LoginSystemUsingPhpDi\libs\HttpPostData ;
