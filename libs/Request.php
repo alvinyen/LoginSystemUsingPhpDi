@@ -1,10 +1,12 @@
 <?php
 
 namespace LoginSystemUsingPhpDi\libs;
-include_once "./libs/HttpData.php";
-include_once "./libs/HttpGetData.php";
+include_once __DIR__ . "/HttpData.php";
+include_once __DIR__ . "/HttpGetData.php";
+include_once __DIR__ . "/HttpPostData.php";
 use \LoginSystemUsingPhpDi\libs\HttpData ;
 use \LoginSystemUsingPhpDi\libs\HttpGetData ;
+use \LoginSystemUsingPhpDi\libs\HttpPostData ;
 
 
 class Request
@@ -21,7 +23,7 @@ class Request
     public function getData():array
     {
         $dataArray = $this->createHttpData()->parse() ;
-        return $dataArray ;
+        return $dataArray;
     }
 
     protected function createHttpData():HttpData

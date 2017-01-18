@@ -2,7 +2,7 @@
 
 namespace LoginSystemUsingPhpDi\libs ;
 include_once "HttpData.php" ;
-use LoginSystemUsingPhpDi\libs\HttpData ;
+use \LoginSystemUsingPhpDi\libs\HttpData ;
 
 
 class HttpGetData implements HttpData
