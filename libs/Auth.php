@@ -3,5 +3,5 @@ namespace LoginSystemUsingPhpDi\libs;
 
 interface Auth
 {
-    function check():bool;
+    function check(string $user, string $password):bool;
 }
