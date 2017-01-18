@@ -1,7 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: KJ-Yen
- * Date: 2017/1/18
- * Time: 上午12:08
- */
+include_once "./libs/Request.php";
+use \LoginSystemUsingPhpDi\libs\Request ;
+
+echo 'LoginSystemUsingPhpDi\index.php<br><br>' ;
+$request = new Request($_SERVER['REQUEST_METHOD']) ;
+print_r($request->getData());
