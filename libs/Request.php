@@ -20,7 +20,7 @@ class Request
         $this->method = $method ;
     }
 
-    public function getData():array
+    public function getDataArray():array
     {
         $dataArray = $this->createHttpData()->parse() ;
         return $dataArray;
@@ -28,16 +28,18 @@ class Request
 
     protected function createHttpData():HttpData
     {
+        $httpData = null ;
         switch($this->method)
         {
             case self::HTTP_METHOD_GET :
-                return new HttpGetData() ;
+                $httpData = new HttpGetData() ;
                 break ;
             case self::HTTP_METHOD_POST :
-                return new HttpPostData($_SERVER['CONTENT_TYPE']) ; // 把需要做的設定放在constructor，讓方法盡可能乾淨
+                $httpData = new HttpPostData($_SERVER['CONTENT_TYPE']) ; // 把需要做的設定放在constructor，讓方法盡可能乾淨
                 break ;
             default :
                 echo 'no http method been matched.' ;
         }
+        return $httpData ;
     }
 }

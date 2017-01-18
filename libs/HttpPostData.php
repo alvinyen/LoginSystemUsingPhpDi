@@ -21,10 +21,10 @@ class HttpPostData implements HttpData
         $httpPostDataArray = [] ;
         switch ($this->contentType) {
             case self::CONTENT_TYPE_FORM_DATA :
-                echo self::CONTENT_TYPE_FORM_DATA . "<br><br>" ;
+                $httpPostDataArray = $_POST ;
                 break ;
             case self::CONTENT_TYPE_JSON :
-                echo self::CONTENT_TYPE_JSON . "<br><br>" ;
+                $httpPostDataArray = json_decode(file_get_contents('php://input'), true); // true means decode to assoc
                 break ;
             default :
                 echo 'no content type been matched.' ;
