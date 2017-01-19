@@ -16,7 +16,6 @@ class PdoDbAuth implements Auth
         }catch (\PDOException $e){
             echo "Connection Failed" . $e->getMessage() ;
         }
-        var_dump($this->databaseHandler);
     }
 
     function check(string $user, string $password):bool{
