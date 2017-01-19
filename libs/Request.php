@@ -20,8 +20,7 @@ class Request
         $this->method = $method ;
     }
 
-    public function getDataArray():array
-    {
+    public function getDataArray():array{
         $dataArray = $this->createHttpData()->parse() ;
         return $dataArray;
     }

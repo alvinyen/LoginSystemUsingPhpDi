@@ -1,13 +1,13 @@
 <?php
 
 namespace LoginSystemUsingPhpDi\libs;
-include_once "Auth.php" ;
+include_once __DIR__ . "/Auth.php" ;
 use \LoginSystemUsingPhpDi\libs\Auth ;
 
-class DbAuth implements Auth
+class RawDbAuth implements Auth
 {
     protected $connection = null ;
-    const TABLE_NAME = "Member";
+
 
     public function __construct(string $dbHost, string $dbUser, string $dbPassword, string $dbName)
     {
@@ -23,17 +23,16 @@ class DbAuth implements Auth
     {
 
         $check = false ;
-        $tableName = self::TABLE_NAME ;
+        $tableName = Auth::TABLE_NAME ;
 
         $query = "SELECT * " ;
         $query .= "FROM {$tableName} " ;
         $query .= "WHERE user='{$user}' AND password='{$password}' ;" ;
-//        echo $query . PHP_EOL ;
 
         $result = mysqli_query($this->connection, $query) ;
 
         if(!$result){
-            die("query failed" . mysqli_error($this->connection));
+            die("mysqli query failed" . mysqli_error($this->connection));
         }else if(mysqli_num_rows($result)>0){
             $check = true ;
         }
