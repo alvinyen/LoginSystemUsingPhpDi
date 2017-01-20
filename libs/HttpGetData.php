@@ -1,8 +1,12 @@
 <?php
 
 namespace LoginSystemUsingPhpDi\libs ;
+
 include_once "HttpData.php" ;
-use \LoginSystemUsingPhpDi\libs\HttpData ;
+
+require_once __DIR__ . "/../vendor/autoload.php";
+
+use LoginSystemUsingPhpDi\libs\HttpData ;
 
 
 class HttpGetData implements HttpData

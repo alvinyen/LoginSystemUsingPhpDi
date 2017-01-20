@@ -1,8 +1,12 @@
 <?php
 
 namespace LoginSystemUsingPhpDi\libs;
-include_once __DIR__ . "/Auth.php" ;
-use \LoginSystemUsingPhpDi\libs\Auth ;
+
+include_once __DIR__ . "/Auth.php";
+
+require_once __DIR__ . "/../vendor/autoload.php";
+
+use LoginSystemUsingPhpDi\libs\Auth ;
 
 class RawDbAuth implements Auth
 {
@@ -15,25 +19,22 @@ class RawDbAuth implements Auth
         if(!$connection){
             die("connection failed" . mysqli_error($this->connection));
         }
-        echo 'connecting to db' . PHP_EOL ;
         $this->connection = $connection ;
     }
 
     public function check(string $user, string $password):bool
     {
-
         $check = false ;
-        $tableName = Auth::TABLE_NAME ;
 
         $query = "SELECT * " ;
-        $query .= "FROM {$tableName} " ;
+        $query .= "FROM " . Auth::TABLE_NAME . " " ;
         $query .= "WHERE user='{$user}' AND password='{$password}' ;" ;
 
         $result = mysqli_query($this->connection, $query) ;
 
         if(!$result){
             die("mysqli query failed" . mysqli_error($this->connection));
-        }else if(mysqli_num_rows($result)>0){
+        }else if(mysqli_num_rows($result)){
             $check = true ;
         }
 

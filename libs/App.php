@@ -1,10 +1,14 @@
 <?php
 
 namespace LoginSystemUsingPhpDi\libs;
+
 include_once __DIR__ . "/Request.php" ;
-include_once __DIR__ . "/Auth.php" ;
-use \LoginSystemUsingPhpDi\libs\Request ;
-use \LoginSystemUsingPhpDi\libs\Auth ;
+include_once __DIR__ . "/Auth.php";
+
+require_once __DIR__ . "/../vendor/autoload.php";
+
+use LoginSystemUsingPhpDi\libs\Request ;
+use LoginSystemUsingPhpDi\libs\Auth ;
 
 
 
@@ -19,7 +23,8 @@ class App
         $this->auth = $auth ;
     }
 
-    public function login():bool {
+    public function login():bool
+    {
         $dataArray = $this->request->getDataArray() ;
         $user = $dataArray['user'] ;
         $password = $dataArray['password'] ;

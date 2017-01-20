@@ -1,8 +1,12 @@
 <?php
 namespace LoginSystemUsingPhpDi\libs;
-include_once __DIR__ . "/Auth.php" ;
-use \LoginSystemUsingPhpDi\libs\Auth ;
-use \PDO ;
+
+include_once __DIR__ . "/Auth.php";
+
+require_once __DIR__ . "/../vendor/autoload.php";
+
+use LoginSystemUsingPhpDi\libs\Auth ;
+use PDO ;
 
 class PdoDbAuth implements Auth
 {
@@ -17,6 +21,7 @@ class PdoDbAuth implements Auth
             echo "Connection Failed" . $e->getMessage() ;
         }
     }
+
 
     function check(string $user, string $password):bool{
         $check = false ;
