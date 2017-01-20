@@ -5,6 +5,7 @@ include_once __DIR__ . "/../libs/Request.php" ;
 include_once __DIR__ . "/../libs/Auth.php" ;
 include_once __DIR__ . "/../libs/RawDbAuth.php";
 include_once __DIR__ . "/../libs/PdoDbAuth.php";
+include_once __DIR__ . "/../libs/IdiormDbAuth.php";
 include_once __DIR__ . "/../libs/App.php";
 
 require_once __DIR__ . "/../vendor/autoload.php" ;
@@ -15,6 +16,7 @@ use LoginSystemUsingPhpDi\libs\Request ;
 use LoginSystemUsingPhpDi\libs\Auth ;
 use LoginSystemUsingPhpDi\libs\RawDbAuth ;
 use LoginSystemUsingPhpDi\libs\PdoDbAuth ;
+use LoginSystemUsingPhpDi\libs\IdiormDbAuth ;
 
 //echo Auth::class ;
 //echo RawDbAuth::class . PHP_EOL ;
@@ -32,7 +34,8 @@ return [
     Request::class => DI\object()->constructor(DI\get('REQUEST_METHOD')) ,
     RawDbAuth::class => DI\object(RawDbAuth::class)->constructor(DI\get('DB_HOST'), DI\get('DB_USER'), DI\get('DB_PASSWORD'), DI\get('DB_NAME')) ,
     PdoDbAuth::class => DI\object(PdoDbAuth::class)->constructor(DI\get('DSN'), DI\get('DB_USER'), DI\get('DB_PASSWORD')) ,
-    App::class => DI\object()->constructor(DI\get(Request::class), DI\get(PdoDbAuth::class) ) , // paras of definition !!
+    IdiormDbAuth::class => DI\object(IdiormDbAuth::class)->constructor(DI\get('DSN'), DI\get('DB_USER'), DI\get('DB_PASSWORD')),
+    App::class => DI\object()->constructor(DI\get(Request::class), DI\get(IdiormDbAuth::class) ) , // paras of definition !!
 ] ;
 
 //interface Setting{

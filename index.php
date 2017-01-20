@@ -23,12 +23,12 @@ $builder = new DI\ContainerBuilder();
 $builder->addDefinitions( __DIR__ . '/config/config.php');
 $container = $builder->build() ;
 
-$dsn = sprintf(
-    "%s:host=%s;dbname=%s" ,
-    Setting::DBMS_INSTANCE ,
-    Setting::DB_HOST ,
-    Setting::DB_NAME
-);
+//$dsn = sprintf(
+//    "%s:host=%s;dbname=%s" ,
+//    Setting::DBMS_INSTANCE ,
+//    Setting::DB_HOST ,
+//    Setting::DB_NAME
+//);
 
 //var_dump((new App($container->get(Request::class), $container->get(Auth::class)))->login()) ;
 var_dump($container->get(App::class)->login());
