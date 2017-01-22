@@ -2,5 +2,8 @@
     "require": {
         "php-di/php-di": "^5.4",
         "j4mie/idiorm": "^1.5"
+    } ,
+    "autoload": {
+        "psr-4": {"LoginSystemUsingPhpDi\\": ""}
     }
 }

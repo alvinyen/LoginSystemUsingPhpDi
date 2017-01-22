@@ -1,5 +1,6 @@
 <?php
 namespace LoginSystemUsingPhpDi\res ;
+
 interface Setting{
     const DBMS_INSTANCE = "mysql";
     const DB_HOST = "127.0.0.1";

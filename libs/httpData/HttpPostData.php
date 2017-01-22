@@ -1,12 +1,12 @@
 <?php
 
-namespace LoginSystemUsingPhpDi\libs;
+namespace LoginSystemUsingPhpDi\libs\httpData;
 
-include_once "HttpData.php" ;
+//include_once "HttpData.php";
 
-require_once __DIR__ . "/../vendor/autoload.php";
+require_once __DIR__ . "/../../vendor/autoload.php";
 
-use LoginSystemUsingPhpDi\libs\HttpData ;
+use LoginSystemUsingPhpDi\libs\httpData\HttpData ;
 
 
 class HttpPostData implements HttpData

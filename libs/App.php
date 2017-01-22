@@ -2,13 +2,13 @@
 
 namespace LoginSystemUsingPhpDi\libs;
 
-include_once __DIR__ . "/Request.php" ;
-include_once __DIR__ . "/Auth.php";
+//include_once __DIR__ . "/Request.php" ;
+//include_once __DIR__ . "/auth/Auth.php";
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use LoginSystemUsingPhpDi\libs\Request ;
-use LoginSystemUsingPhpDi\libs\Auth ;
+use LoginSystemUsingPhpDi\libs\auth\Auth ;
 
 
 

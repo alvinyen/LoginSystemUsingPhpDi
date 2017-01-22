@@ -15,6 +15,10 @@ class ComposerStaticInit823b7663832d38dd8a4b34c435826535
         array (
             'PhpDocReader\\' => 13,
         ),
+        'L' => 
+        array (
+            'LoginSystemUsingPhpDi\\' => 22,
+        ),
         'I' => 
         array (
             'Invoker\\' => 8,
@@ -30,6 +34,10 @@ class ComposerStaticInit823b7663832d38dd8a4b34c435826535
         'PhpDocReader\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-di/phpdoc-reader/src/PhpDocReader',
+        ),
+        'LoginSystemUsingPhpDi\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/',
         ),
         'Invoker\\' => 
         array (

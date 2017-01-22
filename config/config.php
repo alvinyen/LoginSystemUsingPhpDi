@@ -1,24 +1,24 @@
 <?php
 namespace LoginSystemUsingPhpDi\config ;
 
-include_once __DIR__ . "/../libs/Request.php" ;
-include_once __DIR__ . "/../libs/Auth.php" ;
-include_once __DIR__ . "/../libs/RawDbAuth.php";
-include_once __DIR__ . "/../libs/PdoDbAuth.php";
-include_once __DIR__ . "/../libs/IdiormDbAuth.php";
-include_once __DIR__ . "/../libs/App.php";
+//include_once __DIR__ . "/../libs/Request.php" ;
+//include_once __DIR__ . "/../libs/App.php";
+//include_once __DIR__ . "/../libs/auth/Auth.php";
+//include_once __DIR__ . "/../libs/auth/RawDbAuth.php";
+//include_once __DIR__ . "/../libs/auth/PdoDbAuth.php";
+//include_once __DIR__ . "/../libs/auth/IdiormDbAuth.php";
 
 require_once __DIR__ . "/../vendor/autoload.php" ;
 
 use DI ;
 use LoginSystemUsingPhpDi\libs\App ;
 use LoginSystemUsingPhpDi\libs\Request ;
-use LoginSystemUsingPhpDi\libs\Auth ;
-use LoginSystemUsingPhpDi\libs\RawDbAuth ;
-use LoginSystemUsingPhpDi\libs\PdoDbAuth ;
-use LoginSystemUsingPhpDi\libs\IdiormDbAuth ;
+use LoginSystemUsingPhpDi\libs\auth\Auth ;
+use LoginSystemUsingPhpDi\libs\auth\RawDbAuth ;
+use LoginSystemUsingPhpDi\libs\auth\PdoDbAuth ;
+use LoginSystemUsingPhpDi\libs\auth\IdiormDbAuth ;
 
-//echo Auth::class ;
+//echo auth::class ;
 //echo RawDbAuth::class . PHP_EOL ;
 //echo PdoDbAuth::class . PHP_EOL ;
 

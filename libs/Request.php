@@ -2,15 +2,15 @@
 
 namespace LoginSystemUsingPhpDi\libs ;
 
-include_once __DIR__ . "/HttpData.php" ;
-include_once __DIR__ . "/HttpGetData.php" ;
-include_once __DIR__ . "/HttpPostData.php" ;
+//include_once __DIR__ . "/httpData/httpData.php";
+//include_once __DIR__ . "/httpData/HttpGetData.php";
+//include_once __DIR__ . "/httpData/HttpPostData.php";
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use LoginSystemUsingPhpDi\libs\HttpData ;
-use LoginSystemUsingPhpDi\libs\HttpGetData ;
-use LoginSystemUsingPhpDi\libs\HttpPostData ;
+use LoginSystemUsingPhpDi\libs\httpData\HttpData ;
+use LoginSystemUsingPhpDi\libs\httpData\HttpGetData ;
+use LoginSystemUsingPhpDi\libs\httpData\HttpPostData ;
 
 
 class Request
