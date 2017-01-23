@@ -6,7 +6,7 @@ namespace LoginSystemUsingPhpDi\libs ;
 //include_once __DIR__ . "/httpData/HttpGetData.php";
 //include_once __DIR__ . "/httpData/HttpPostData.php";
 
-require_once __DIR__ . "/../vendor/autoload.php";
+require_once __DIR__ . "/../../vendor/autoload.php";
 
 use LoginSystemUsingPhpDi\libs\httpData\HttpData ;
 use LoginSystemUsingPhpDi\libs\httpData\HttpGetData ;

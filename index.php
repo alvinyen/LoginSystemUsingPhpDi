@@ -7,7 +7,7 @@ namespace LoginSystemUsingPhpDi ;
 //include_once __DIR__ . "/libs/auth/PdoDbAuth.php";
 //include_once __DIR__ . "/libs/App.php";
 //include_once __DIR__ . "/res/Setting.php";
-//include_once __DIR__ . "/config/config.php";
+//include_once __DIR__ . "/config/dbConfig.php";
 
 require_once __DIR__ . "/vendor/autoload.php";
 
@@ -18,6 +18,7 @@ require_once __DIR__ . "/vendor/autoload.php";
 //use LoginSystemUsingPhpDi\res\Setting ;
 use LoginSystemUsingPhpDi\libs\App ;
 use DI ;
+use LoginSystemUsingPhpDi\libs\Router;
 
 //set_exception_handler(function ($e){
 ////    $code = $e->getCode() ?: 400 ;
@@ -30,7 +31,7 @@ use DI ;
 //});
 
 $builder = new DI\ContainerBuilder();
-$builder->addDefinitions(__DIR__ . '/config/config.php');
+$builder->addDefinitions(__DIR__ . '/src/config/containerConfig.php');
 $GLOBALS['container'] =  $builder->build() ;
 
 //$dsn = sprintf(
@@ -62,7 +63,16 @@ echo $_SERVER['PATH_INFO'] . PHP_EOL ;
      throw new \Exception('unknown endpoint', 404);
  }
 
+$uri = $_SERVER['PATH_INFO'] ;
+$method = $_SERVER['REQUEST_METHOD'] ;
+try{
+    $routeTarget = $GLOBALS['container'] -> get('ROUTE_RULES')[$uri] ;
+}catch (DI\NotFoundException $e){
+    echo "no rule" ;
+}
 
+
+(new Router($uri, $method))->submit();
 
 // var_dump($GLOBALS['container']->get('xyz')) ;
 //<b>Fatal error</b>:  Uncaught DI\NotFoundException: No entry or class found for 'xyz' in /Users/KJ-Yen/PhpstormProjects/LoginSystemUsingPhpDi/vendor/php-di/php-di/src/DI/Container.php:119

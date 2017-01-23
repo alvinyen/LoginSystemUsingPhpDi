@@ -3,7 +3,7 @@ namespace LoginSystemUsingPhpDi\libs\auth;
 
 //include_once __DIR__ . "/Auth.php";
 
-require_once __DIR__ . "/../../vendor/autoload.php";
+require_once __DIR__ . "/../../../vendor/autoload.php";
 
 use LoginSystemUsingPhpDi\libs\auth\Auth ;
 use PDO ;

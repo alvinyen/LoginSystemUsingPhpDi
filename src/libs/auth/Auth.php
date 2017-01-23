@@ -1,7 +1,7 @@
 <?php
 namespace LoginSystemUsingPhpDi\libs\auth;
 
-require_once __DIR__ . "/../../vendor/autoload.php";
+require_once __DIR__ . "/../../../vendor/autoload.php";
 
 interface Auth
 {

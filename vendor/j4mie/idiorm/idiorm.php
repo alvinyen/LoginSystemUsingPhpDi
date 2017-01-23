@@ -237,7 +237,7 @@
         protected $_is_new = false;
 
         // Name of the column to use as the primary key for
-        // this instance only. Overrides the config settings.
+        // this instance only. Overrides the containerConfig settings.
         protected $_instance_id_column = null;
 
         // ---------------------- //
@@ -258,7 +258,7 @@
          * @param string $connection_name Which connection to use
          */
         public static function configure($key, $value = null, $connection_name = self::DEFAULT_CONNECTION) {
-            self::_setup_db_config($connection_name); //ensures at least default config is set
+            self::_setup_db_config($connection_name); //ensures at least default containerConfig is set
 
             if (is_array($key)) {
                 // Shortcut: If only one array argument is passed,
@@ -508,7 +508,7 @@
 
         /**
          * Add a query to the internal query log. Only works if the
-         * 'logging' config option is set to true.
+         * 'logging' containerConfig option is set to true.
          *
          * This works by manually binding the parameters to the query - the
          * query isn't executed like this (PDO normally passes the query and
@@ -573,7 +573,7 @@
 
         /**
          * Get the last query executed. Only works if the
-         * 'logging' config option is set to true. Otherwise
+         * 'logging' containerConfig option is set to true. Otherwise
          * this will return null. Returns last query from all connections if
          * no connection_name is specified
          * @param null|string $connection_name Which connection to use
@@ -593,7 +593,7 @@
         /**
          * Get an array containing all the queries run on a
          * specified connection up to now.
-         * Only works if the 'logging' config option is
+         * Only works if the 'logging' containerConfig option is
          * set to true. Otherwise, returned array will be empty.
          * @param string $connection_name Which connection to use
          */
@@ -1823,7 +1823,7 @@
         /**
          * This method performs the actual quoting of a single
          * part of an identifier, using the identifier quote
-         * character specified in the config (or autodetected).
+         * character specified in the containerConfig (or autodetected).
          */
         protected function _quote_identifier_part($part) {
             if ($part === '*') {

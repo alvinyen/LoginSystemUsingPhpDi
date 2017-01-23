@@ -37,7 +37,7 @@ class ComposerStaticInit823b7663832d38dd8a4b34c435826535
         ),
         'LoginSystemUsingPhpDi\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/',
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'Invoker\\' => 
         array (
