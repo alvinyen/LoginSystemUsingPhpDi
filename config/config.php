@@ -30,6 +30,9 @@ return [
     "DB_NAME" => "login_system" ,
     "REQUEST_METHOD" => $_SERVER['REQUEST_METHOD'] ,
     "DSN" => DI\string('{DBMS_INSTANCE}:host={DB_HOST};dbname={DB_NAME}') ,
+    "ROUTE_RULES" => [
+        "/users/login" => "/../controllers/login.php"
+    ] ,
 
     Request::class => DI\object()->constructor(DI\get('REQUEST_METHOD')) ,
     RawDbAuth::class => DI\object(RawDbAuth::class)->constructor(DI\get('DB_HOST'), DI\get('DB_USER'), DI\get('DB_PASSWORD'), DI\get('DB_NAME')) ,
