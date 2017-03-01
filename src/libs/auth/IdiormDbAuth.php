@@ -19,24 +19,23 @@ class IdiormDbAuth implements Auth
 {
     public function __construct(string $dsn, string $user, string $password)
     {
-        ORM::configure
-        (
-            array
-            (
+
+        ORM::configure(
+            array(
                 'connection_string' => $dsn ,
                 'username' => $user ,
                 'password' => $password
             )
         );
+
         ORM::configure('return_result_sets', true);
     }
 
-    function check(string $user, string $password):bool
+    public function check(string $user, string $password):bool
     {
         $check =false ;
-
         $whereConditionArray = array( 'user' => $user , 'password' => $password );
-        if(ORM::forTable(Auth::TABLE_NAME)->where($whereConditionArray)->findOne()){
+        if (ORM::forTable(Auth::TABLE_NAME)->where($whereConditionArray)->findOne()) {
             $check = true ;
         }
 

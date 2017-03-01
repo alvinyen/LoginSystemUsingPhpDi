@@ -8,7 +8,6 @@ require_once __DIR__ . "/../../../vendor/autoload.php";
 
 use LoginSystemUsingPhpDi\libs\httpData\HttpData ;
 
-
 class HttpPostData implements HttpData
 {
     protected $contentType = null ;
@@ -24,13 +23,16 @@ class HttpPostData implements HttpData
     {
         $httpPostDataArray = [] ;
         switch ($this->contentType) {
-            case self::CONTENT_TYPE_FORM_DATA :
+            case self::CONTENT_TYPE_FORM_DATA:
                 $httpPostDataArray = $_POST ;
                 break ;
-            case self::CONTENT_TYPE_JSON :
+            case self::CONTENT_TYPE_JSON:
                 $httpPostDataArray = json_decode(file_get_contents('php://input'), true); // true means decode to assoc
+
+                // !!!!!debug!!!!!
+//                echo var_dump($httpPostDataArray) ;
                 break ;
-            default :
+            default:
                 echo 'no content type been matched.' ;
         }
         return $httpPostDataArray ;

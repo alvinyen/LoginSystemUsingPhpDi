@@ -12,7 +12,6 @@ use LoginSystemUsingPhpDi\libs\httpData\HttpData ;
 use LoginSystemUsingPhpDi\libs\httpData\HttpGetData ;
 use LoginSystemUsingPhpDi\libs\httpData\HttpPostData ;
 
-
 class Request
 {
     protected $method = null ;
@@ -24,7 +23,8 @@ class Request
         $this->method = $method ;
     }
 
-    public function getDataArray():array{
+    public function getDataArray():array
+    {
         $dataArray = $this->createHttpData()->parse() ;
         return $dataArray;
     }
@@ -32,15 +32,14 @@ class Request
     protected function createHttpData():HttpData
     {
         $httpData = null ;
-        switch($this->method)
-        {
-            case self::HTTP_METHOD_GET :
+        switch ($this->method) {
+            case self::HTTP_METHOD_GET:
                 $httpData = new HttpGetData() ;
                 break ;
-            case self::HTTP_METHOD_POST :
+            case self::HTTP_METHOD_POST:
                 $httpData = new HttpPostData($_SERVER['CONTENT_TYPE']) ; // 把需要做的設定放在constructor，讓方法盡可能乾淨
                 break ;
-            default :
+            default:
                 echo 'no http method been matched.' ;
         }
         return $httpData ;

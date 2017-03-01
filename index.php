@@ -1,5 +1,8 @@
 <?php
 namespace LoginSystemUsingPhpDi ;
+header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Headers:Content-Type");
+// !!!!!debug!!!!!
 
 //include_once __DIR__ . "/libs/Request.php";
 //include_once __DIR__ . "/libs/auth/auth.php";
@@ -19,6 +22,8 @@ require_once __DIR__ . "/vendor/autoload.php";
 use LoginSystemUsingPhpDi\libs\App ;
 use DI ;
 use LoginSystemUsingPhpDi\libs\Router;
+
+// !!!!!debug!!!!!
 
 //set_exception_handler(function ($e){
 ////    $code = $e->getCode() ?: 400 ;
@@ -42,34 +47,41 @@ $GLOBALS['container'] =  $builder->build() ;
 //);
 
 //var_dump((new App($container->get(Request::class), $container->get(auth::class)))->login()) ;
-var_dump($GLOBALS['container'] ->get(App::class)->login());
+
+// !!!!!debug!!!!!
+//var_dump($GLOBALS['container'] ->get(App::class)->login());
+
 //var_dump((new App( (new Request($_SERVER['REQUEST_METHOD'])) , ( new PdoDbAuth($dsn,Setting::DB_USER,Setting::DB_PASSWORD) ) ))->login());
 //var_dump((new App( (new Request($_SERVER['REQUEST_METHOD'])) , ( new RawDbAuth(Setting::DB_HOST,Setting::DB_USER,Setting::DB_PASSWORD,Setting::DB_NAME) ) ))->login());
 
-if($_SERVER['PATH_INFO'] == NULL){
-    echo 'no path info ';
-}else if($_SERVER['PATH_INFO']){
-    $url_pieces = explode('/', $_SERVER['PATH_INFO']) ;
-    print_r($url_pieces);
-    echo $_SERVER['REQUEST_METHOD'] . PHP_EOL ;
-}else{
+// !!!!!debug!!!!!
+//if ($_SERVER['PATH_INFO'] == null) {
+//    echo 'no path info ';
+//} elseif ($_SERVER['PATH_INFO']) {
+//    $url_pieces = explode('/', $_SERVER['PATH_INFO']) ;
+//    print_r($url_pieces);
+//    echo $_SERVER['REQUEST_METHOD'] . PHP_EOL ;
+//} else {
+//}
 
-}
+// !!!!!debug!!!!!
+//echo $_SERVER['PATH_INFO'] . PHP_EOL ;
 
-echo $_SERVER['PATH_INFO'] . PHP_EOL ;
+// !!!!!debug!!!!!
+// if ($url_pieces[1] != 'users') {
+//     throw new \Exception('unknown endpoint', 404);
+// }
 
- if($url_pieces[1] != 'users')
- {
-     throw new \Exception('unknown endpoint', 404);
- }
-
+// !!!!!debug!!!!!
 $uri = $_SERVER['PATH_INFO'] ;
 $method = $_SERVER['REQUEST_METHOD'] ;
-try{
-    $routeTarget = $GLOBALS['container'] -> get('ROUTE_RULES')[$uri] ;
-}catch (DI\NotFoundException $e){
-    echo "no rule" ;
-}
+
+// !!!!!debug!!!!!
+//try {
+//    $routeTarget = $GLOBALS['container'] -> get('ROUTE_RULES')[$uri] ;
+//} catch (DI\NotFoundException $e) {
+//    echo "no rule" ;
+//}
 
 
 (new Router($uri, $method))->submit();
@@ -90,5 +102,3 @@ try{
 //        return false ;
 //    }
 //}
-
-

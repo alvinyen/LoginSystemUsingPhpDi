@@ -15,15 +15,16 @@ class PdoDbAuth implements Auth
 
     public function __construct(string $dsn, string $user, string $password)
     {
-        try{
+        try {
             $this->databaseHandler = new PDO($dsn, $user, $password) ;
-        }catch (\PDOException $e){
+        } catch (\PDOException $e) {
             echo "Connection Failed" . $e->getMessage() ;
         }
     }
 
 
-    function check(string $user, string $password):bool{
+    public function check(string $user, string $password):bool
+    {
         $check = false ;
 
         $query = "SELECT count(*) " ;
@@ -35,11 +36,10 @@ class PdoDbAuth implements Auth
         $statement->bindValue(':password', $password);
         $statement->execute() ;
 
-        if($statement->fetchColumn()){
+        if ($statement->fetchColumn()) {
             $check = true ;
         }
 
         return $check ;
     }
 }
-

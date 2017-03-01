@@ -10,8 +10,6 @@ require_once __DIR__ . "/../../vendor/autoload.php";
 use LoginSystemUsingPhpDi\libs\Request ;
 use LoginSystemUsingPhpDi\libs\auth\Auth ;
 
-
-
 class App
 {
     protected $request = null ;
@@ -28,6 +26,6 @@ class App
         $dataArray = $this->request->getDataArray() ;
         $user = $dataArray['user'] ;
         $password = $dataArray['password'] ;
-        return $this->auth->check($user,$password) ;
+        return $this->auth->check($user, $password) ;
     }
 }

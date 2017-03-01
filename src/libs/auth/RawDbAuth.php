@@ -16,7 +16,7 @@ class RawDbAuth implements Auth
     public function __construct(string $dbHost, string $dbUser, string $dbPassword, string $dbName)
     {
         $connection = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName) ;
-        if(!$connection){
+        if (!$connection) {
             die("connection failed" . mysqli_error($this->connection));
         }
         $this->connection = $connection ;
@@ -32,9 +32,9 @@ class RawDbAuth implements Auth
 
         $result = mysqli_query($this->connection, $query) ;
 
-        if(!$result){
+        if (!$result) {
             die("mysqli query failed" . mysqli_error($this->connection));
-        }else if(mysqli_num_rows($result)){
+        } elseif (mysqli_num_rows($result)) {
             $check = true ;
         }
 
