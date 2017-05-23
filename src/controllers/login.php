@@ -19,8 +19,8 @@ use DI ;
 
 $isLogin = $GLOBALS['container']->get(App::class)->login() ;
 if($isLogin){
-    echo json_encode(array('auth' => 'ok'));
+    echo json_encode(array('auth' => true));
 }else{
-    echo json_encode(array('auth' => 'die'));
+    echo json_encode(array('auth' => false ));
 }
 

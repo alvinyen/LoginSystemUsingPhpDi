@@ -32,6 +32,8 @@ class Request
     protected function createHttpData():HttpData
     {
         $httpData = null ;
+        // !!!!!debug!!!!!
+//        echo $this->method ;
         switch ($this->method) {
             case self::HTTP_METHOD_GET:
                 $httpData = new HttpGetData() ;

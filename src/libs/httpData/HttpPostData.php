@@ -28,7 +28,6 @@ class HttpPostData implements HttpData
                 break ;
             case self::CONTENT_TYPE_JSON:
                 $httpPostDataArray = json_decode(file_get_contents('php://input'), true); // true means decode to assoc
-
                 // !!!!!debug!!!!!
 //                echo var_dump($httpPostDataArray) ;
                 break ;
